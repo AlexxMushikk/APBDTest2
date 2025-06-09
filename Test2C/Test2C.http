@@ -1,0 +1,82 @@
+### 200 OK
+GET http://localhost:5000/api/racers/1/participations
+Accept: application/json
+
+### 201 Created
+POST http://localhost:5000/api/track-races/participants
+Content-Type: application/json
+
+{
+  "raceName": "British Grand Prix",
+  "trackName": "Silverstone Circuit",
+  "participations": [
+    {
+      "racerId": 1,
+      "laps": 52,
+      "finishTimeInSeconds": 5400,
+      "position": 1
+    }
+  ]
+}
+
+### Create participations for Monaco Grand Prix (201 Created)
+POST http://localhost:5000/api/track-races/participants
+Content-Type: application/json
+
+{
+  "raceName": "Monaco Grand Prix",
+  "trackName": "Monaco Circuit",
+  "participations": [
+    {
+      "racerId": 1,
+      "position": 1,
+      "finishTimeInSeconds": 5550
+    },
+    {
+      "racerId": 2,
+      "position": 2,
+      "finishTimeInSeconds": 5650
+    }
+  ]
+}
+
+### 404 Not Found
+POST http://localhost:5000/api/track-races/participants
+Content-Type: application/json
+
+{
+  "raceName": "Nonexistent Race",
+  "trackName": "Silverstone Circuit",
+  "participations": [
+    {
+      "racerId": 1,
+      "laps": 52,
+      "finishTimeInSeconds": 5400,
+      "position": 1
+    }
+  ]
+}
+
+###  400 Bad Request
+POST http://localhost:5000/api/track-races/participants
+Content-Type: application/json
+
+{
+  "raceName": "",
+  "trackName": "Silverstone Circuit",
+  "participations": []
+}
+
+### Create participations for Monaco Grand Prix (201 Created)
+POST http://localhost:5000/api/track-races/participants
+Content-Type: application/json
+
+{
+  "raceName": "Monaco Grand Prix",
+  "trackName": "Monaco Circuit",
+  "participations": [
+    { "racerId": 1, "position": 1, "finishTimeInSeconds": 5550 },
+    
+    { "racerId": 2, "position": 2, "finishTimeInSeconds": 5650 }
+  ]
+}
